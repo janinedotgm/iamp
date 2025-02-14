@@ -7,11 +7,14 @@ const nextConfig = {
     }
     config.output.webassemblyModuleFilename = 'static/wasm/[modulehash].wasm'
 
-    // Copy WASM files to the public directory
+    // Only try to copy WASM files if the pkg directory exists
     config.plugins.push({
       apply: (compiler) => {
         compiler.hooks.afterEmit.tap('CopyWasmPlugin', () => {
-          require('fs-extra').copySync('./pkg', './public/pkg')
+          const fs = require('fs-extra')
+          if (fs.existsSync('./pkg')) {
+            fs.copySync('./pkg', './public/pkg')
+          }
         })
       }
     })
