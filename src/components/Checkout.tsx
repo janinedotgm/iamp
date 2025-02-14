@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import inputData from './../data/packages_with_path.json';
-import CommandModal, { Step } from './CommandModal';
+import CommandModal, { Step } from '../components/CommandModal';
 
 type GitCommandFunction = (input: string, repo: string) => string;
 type CargoUpdateFunction = () => string;
@@ -13,7 +13,7 @@ const Checkout = () => {
 
   useEffect(() => {
     const loadWasm = async () => {
-      const wasm = await import('@/../pkg/git_commands_wasm');
+      const wasm = await import('../../pkg/git_commands_wasm');
       await wasm.default();
       
       try {

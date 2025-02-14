@@ -1,5 +1,5 @@
-import { RustFlowDiagram, ProgramStep } from '@/components/RustFlowDiagram';
-import Checkout from "@/components/Checkout";
+import { RustFlowDiagram, ProgramStep } from '../components/RustFlowDiagram';
+import Checkout from "../components/Checkout";
 // Define your custom program steps
 const myProgramSteps: ProgramStep[] = [
   {
