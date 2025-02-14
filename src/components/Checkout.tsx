@@ -13,7 +13,7 @@ const Checkout = () => {
 
   useEffect(() => {
     const loadWasm = async () => {
-      const wasm = await import('../../pkg/git_commands_wasm');
+      const wasm = await import('../pkg/git_commands_wasm');
       await wasm.default();
       
       try {
