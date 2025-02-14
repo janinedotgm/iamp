@@ -10,6 +10,7 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   addEdge,
+  Connection,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -72,10 +73,11 @@ export function RustFlowDiagram({
   steps = defaultProgramSteps,
   className = '',
 }: RustFlowDiagramProps) {
-  const [nodes, setNodes, onNodesChange] = useNodesState(createNodes(steps));
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [nodes, _setNodes, onNodesChange] = useNodesState(createNodes(steps));
   const [edges, setEdges, onEdgesChange] = useEdgesState(createEdges(steps));
 
-  const onConnect = useCallback((params: any) => {
+  const onConnect = useCallback((params: Connection) => {
     setEdges((eds) => addEdge(params, eds));
   }, [setEdges]);
 
